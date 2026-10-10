@@ -46,7 +46,7 @@ cp gateway/.env.example gateway/.env
 Set:
 
 ```dotenv
-PORT=3000
+PORT=3010
 BACKEND_URL=http://localhost:3001
 OIDC_ISSUER=https://dev-kru1e87c7gr0dixw.au.auth0.com/
 OIDC_AUDIENCE=https://secure-entry-api
@@ -77,7 +77,7 @@ Terminal 2:
 npm --prefix gateway run dev
 ```
 
-Gateway: `http://localhost:3000`
+Gateway: `http://localhost:3010`
 Backend: `http://localhost:3001`
 
 ## Test scenarios
@@ -85,7 +85,7 @@ Backend: `http://localhost:3001`
 ### 1. No token: gateway blocks request
 
 ```bash
-curl -i http://localhost:3000/api/users
+curl -i http://localhost:3010/api/users
 ```
 
 Expected: `401 Unauthorized`.
@@ -102,7 +102,7 @@ Expected: `403 Forbidden` because no `X-Verified-User` header exists.
 
 ```bash
 export TOKEN='eyJ...'
-curl -i http://localhost:3000/api/users -H "Authorization: Bearer $TOKEN"
+curl -i http://localhost:3010/api/users -H "Authorization: Bearer $TOKEN"
 ```
 
 Expected: `200 OK`, with the backend receiving the verified subject as `X-Verified-User`.
@@ -110,7 +110,7 @@ Expected: `200 OK`, with the backend receiving the verified subject as `X-Verifi
 ### 4. Tampered/expired/wrong-audience token
 
 ```bash
-curl -i http://localhost:3000/api/users -H "Authorization: Bearer $BAD_TOKEN"
+curl -i http://localhost:3010/api/users -H "Authorization: Bearer $BAD_TOKEN"
 ```
 
 Expected: `401 Unauthorized`; the backend is not contacted.
