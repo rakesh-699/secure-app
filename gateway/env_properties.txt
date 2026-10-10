@@ -1,0 +1,8 @@
+#This is the environment property file
+PORT=3010
+BACKEND_URL=http://localhost:3001
+OIDC_ISSUER=https://dev-kru1e87c7gr0dixw.au.auth0.com/
+OIDC_AUDIENCE=https://secure-entry-api  
+OIDC_JWKS_URI=https://dev-kru1e87c7gr0dixw.au.auth0.com/.well-known/jwks.json
+JWKS_CACHE_TTL_MS=3600000
+LOG_LEVEL=info

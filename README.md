@@ -59,6 +59,8 @@ LOG_LEVEL=info
 
 ## Install and run
 
+Change the env_properties file to .env
+
 ```bash
 npm install
 npm --prefix gateway install
